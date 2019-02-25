@@ -19,6 +19,8 @@ public class Snake {
     public Direction d = Direction.RIGHT;
     private Game game = Game.getInstance();
 
+    private int rastishka = 0;
+
     private float time;
     private float every;
 
@@ -149,13 +151,29 @@ public class Snake {
                 Main.actionSound();
                 Game.c.set();
 
-            } else if (Game.a.get().equals(g)) {
+            } else if (Game.a.get().equals(g) || rastishka > 0) {
+
+                if (Game.a.golden) {
+
+                    rastishka += 2;
+
+                }
 
                 every = Math.round(200 - (dots.size() * 1.3f)) * 0.001f;
-                Main.actionSound();
-                Game.c.check();
 
-                return new MoveResponse(true, Reason.APPLE);
+                if (Game.a.get().equals(g)) {
+
+                    Main.actionSound();
+                    Game.c.check();
+                    return new MoveResponse(true, Reason.APPLE);
+
+                }else {
+
+                    rastishka -= 1;
+                    return new MoveResponse(true, null);
+
+                }
+
             }
 
             dots.remove(dots.get(dots.size() - 1));

@@ -1,5 +1,5 @@
 android {
-    buildToolsVersion '21.1.2'
+    buildToolsVersion '28.0.3'
     compileSdkVersion 21
     sourceSets {
         main {
@@ -17,9 +17,9 @@ android {
         exclude 'META-INF/robovm/ios/robovm.xml'
     }
     defaultConfig {
-        applicationId "me.wattguy.worm"
+        applicationId 'me.wattguy.snake'
         minSdkVersion 9
-        targetSdkVersion 27
+        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
     }
@@ -28,6 +28,8 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    productFlavors {
     }
 }
 // called every time gradle gets executed, takes the native dependencies of
@@ -135,6 +137,4 @@ idea {
             }
         }
     }
-}
-dependencies {
 }

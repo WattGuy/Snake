@@ -152,8 +152,9 @@ public class Dot {
 
     }
 
-    public void drawApple(){
-        draw(Color.RED);
+    public void drawApple(Boolean golden){
+        if (golden) draw(Color.GOLD);
+        else draw(Color.RED);
     }
 
     public void drawBrick(){

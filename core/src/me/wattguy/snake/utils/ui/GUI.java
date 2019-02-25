@@ -135,7 +135,7 @@ public class GUI {
 
         if (Game.s != null){
 
-            score.setText(Game.s.dots.size());
+            score.setText("" + Game.s.dots.size());
 
         }
 

@@ -13,7 +13,7 @@ public class Info {
     public static int SCREEN_WIDTH;
     public static int SCREEN_HEIGHT;
 
-    public static float NEED = 0.05f;
+    public static float NEED = 0.025f;
 
     public static float TOP_SPACING = 0;
     public static float BOTTOM_SPACING = 0;

@@ -30,5 +30,8 @@
     <orderEntry type="library" exported="" name="Gradle: gdx-box2d-1.9.9" level="project" />
     <orderEntry type="library" exported="" name="Gradle: gdx-freetype-1.9.9" level="project" />
     <orderEntry type="library" exported="" name="Gradle: gdx-1.9.9" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: gdx-box2d-1.9.9" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: gdx-freetype-1.9.9" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: gdx-1.9.9" level="project" />
   </component>
 </module>
