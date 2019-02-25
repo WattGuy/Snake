@@ -26,9 +26,17 @@ public class Menu implements Screen, InputProcessor {
 
     private static Menu instance;
 
+    private float time = 0f;
+    public static Boolean GAME_STARTED = false;
+    public static Boolean SETTINGS = false;
+
     @Override
     public void show() {
         instance = this;
+
+        time = 0f;
+        GAME_STARTED = false;
+        SETTINGS = false;
 
         Info.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         batch = new SpriteBatch();
@@ -55,6 +63,37 @@ public class Menu implements Screen, InputProcessor {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
+        if (GAME_STARTED || SETTINGS){
+            time += delta;
+
+            if (time >= Info.NEED && GAME_STARTED){
+
+                if (Main.game == null){
+
+                    Main.game = new Game();
+
+                }
+
+                Main.buttonSound();
+
+                Main.getInstance().setScreen(Main.game);
+
+            }else if (time >= Info.NEED && SETTINGS){
+
+                if (Main.settings == null){
+
+                    Main.settings = new Settings();
+
+                }
+
+                Main.buttonSound();
+
+                Main.getInstance().setScreen(Main.settings);
+
+            }
+
+        }
 
         srender.begin(ShapeRenderer.ShapeType.Filled);
         MButtons.draw();
@@ -113,27 +152,14 @@ public class Menu implements Screen, InputProcessor {
 
         if (MButtons.START.getBoundingRectangle().contains(temp.x, temp.y)){
 
-            if (Main.game == null){
+            time = 0f;
+            GAME_STARTED = true;
 
-                Main.game = new Game();
-
-            }
-
-            Main.buttonSound();
-
-            Main.getInstance().setScreen(Main.game);
             return false;
         } else if (MButtons.SETTINGS.getBoundingRectangle().contains(temp.x, temp.y)){
 
-            if (Main.settings == null){
-
-                Main.settings = new Settings();
-
-            }
-
-            Main.buttonSound();
-
-            Main.getInstance().setScreen(Main.settings);
+            time = 0f;
+            SETTINGS = true;
 
             return false;
         }

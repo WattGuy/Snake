@@ -56,8 +56,12 @@ public class MButtons {
     public static void draw(){
         RoundedShapeRenderer srender = Menu.srender;
 
-        srender.setColor(Color.WHITE);
+        if (Menu.GAME_STARTED) srender.setColor(Color.GRAY);
+        else srender.setColor(Color.WHITE);
         srender.roundedRect(start_x, start_y, start_width, start_height, (float) (Info.HP * 1));
+
+        if (Menu.SETTINGS) srender.setColor(Color.GRAY);
+        else srender.setColor(Color.WHITE);
         srender.roundedRect(settings_x, settings_y, settings_width, settings_height, (float) (Info.HP * 1));
 
     }

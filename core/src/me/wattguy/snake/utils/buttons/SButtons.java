@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import me.wattguy.snake.Info;
 import me.wattguy.snake.utils.RoundedShapeRenderer;
+import me.wattguy.snake.view.Menu;
 import me.wattguy.snake.view.Settings;
 
 public class SButtons {
@@ -123,7 +124,8 @@ public class SButtons {
     public static void draw(){
         RoundedShapeRenderer srender = Settings.srender;
 
-        srender.setColor(Color.WHITE);
+        if (Settings.EXIT) srender.setColor(Color.GRAY);
+        else srender.setColor(Color.WHITE);
         srender.roundedRect(exit_x, exit_y, exit_width, exit_height, (float) (Info.HP * 1));
 
     }

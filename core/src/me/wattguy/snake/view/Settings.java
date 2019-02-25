@@ -28,9 +28,15 @@ public class Settings implements Screen, InputProcessor {
 
     private static Settings instance;
 
+    public static Boolean EXIT;
+    private float time = 0f;
+
     @Override
     public void show() {
         instance = this;
+
+        EXIT = false;
+        time = 0f;
 
         Info.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         batch = new SpriteBatch();
@@ -57,6 +63,28 @@ public class Settings implements Screen, InputProcessor {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
+        if (EXIT){
+            time += delta;
+
+            if (time >= Info.NEED){
+
+                time = 0f;
+                EXIT = false;
+
+                if (Main.menu == null){
+
+                    Main.menu = new Menu();
+
+                }
+
+                Main.buttonSound();
+
+                Main.getInstance().setScreen(Main.menu);
+
+            }
+
+        }
 
         batch.begin();
         SButtons.batchdraw();
@@ -119,15 +147,8 @@ public class Settings implements Screen, InputProcessor {
 
         if (SButtons.EXIT.getBoundingRectangle().contains(temp.x, temp.y)){
 
-            if (Main.menu == null){
-
-                Main.menu = new Menu();
-
-            }
-
-            Main.buttonSound();
-
-            Main.getInstance().setScreen(Main.menu);
+            time = 0f;
+            EXIT = true;
 
             return false;
         }else if (SButtons.CM.getBoundingRectangle().contains(temp.x, temp.y) && Config.CONTROL == Control.RELATIVITY){

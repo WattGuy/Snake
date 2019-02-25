@@ -45,7 +45,7 @@ public class Main extends com.badlogic.gdx.Game {
 
 		if (Config.SOUNDS){
 
-			coin.play(1.5f);
+			coin.play();
 
 		}
 

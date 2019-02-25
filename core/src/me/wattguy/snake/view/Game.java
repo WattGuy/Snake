@@ -54,9 +54,17 @@ public class Game implements Screen {
 
     private static Game instance;
 
+    public static Boolean MENU;
+    public static Boolean PAUSE;
+    private float time = 0f;
+
     @Override
     public void show() {
         instance = this;
+
+        MENU = false;
+        PAUSE = false;
+        time = 0f;
 
         GButtons.initialize();
 
@@ -116,14 +124,14 @@ public class Game implements Screen {
 
                     @Override
                     public void onTouchMenu() {
-                        Main.buttonSound();
-                        Main.getInstance().setScreen(Main.menu);
+                        time = 0f;
+                        MENU = true;
                     }
 
                     @Override
                     public void onTouchPause() {
-                        Main.buttonSound();
-                        Game.PAUSED = true;
+                        time = 0f;
+                        PAUSE = true;
                     }
 
                     @Override
@@ -297,6 +305,29 @@ public class Game implements Screen {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+
+        if (MENU || PAUSE){
+            time += delta;
+
+            if (time >= Info.NEED && MENU){
+
+                time = 0f;
+                MENU = false;
+
+                Main.buttonSound();
+                Main.getInstance().setScreen(Main.menu);
+
+            }else if (time >= Info.NEED && PAUSE){
+
+                time = 0f;
+                PAUSE = false;
+
+                Main.buttonSound();
+                Game.PAUSED = true;
+
+            }
+
+        }
 
         if (!GUI.COUNTING && !WON){
 

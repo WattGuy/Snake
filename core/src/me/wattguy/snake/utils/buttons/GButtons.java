@@ -14,6 +14,7 @@ import me.wattguy.snake.utils.Pair;
 import me.wattguy.snake.utils.RoundedShapeRenderer;
 import me.wattguy.snake.utils.Utils;
 import me.wattguy.snake.view.Game;
+import me.wattguy.snake.view.Menu;
 
 public class GButtons {
 
@@ -188,8 +189,12 @@ public class GButtons {
 
         keys();
 
-        srender.setColor(Color.WHITE);
+        if (Game.MENU) srender.setColor(Color.GRAY);
+        else srender.setColor(Color.WHITE);
         srender.roundedRect(menu_x, menu_y, menu_width, menu_height, (float) (Info.HP * 1));
+
+        if (Game.PAUSE) srender.setColor(Color.GRAY);
+        else srender.setColor(Color.WHITE);
         srender.roundedRect(pause_x, pause_y, pause_width, pause_height, (float) (Info.HP * 1));
 
     }
