@@ -317,6 +317,8 @@ public class Game implements Screen {
                 Main.buttonSound();
                 Main.getInstance().setScreen(Main.menu);
 
+                return;
+
             }else if (time >= Info.NEED && PAUSE){
 
                 time = 0f;

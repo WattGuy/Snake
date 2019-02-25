@@ -46,14 +46,14 @@
           <entry key="cfg" value="6" />
           <entry key="fnt" value="2" />
           <entry key="gradle" value="1" />
-          <entry key="iml" value="1" />
-          <entry key="java" value="235" />
+          <entry key="iml" value="2" />
+          <entry key="java" value="236" />
           <entry key="jpg" value="1" />
           <entry key="json" value="14" />
           <entry key="png" value="26" />
           <entry key="pro" value="1" />
           <entry key="properties" value="1" />
-          <entry key="xml" value="11" />
+          <entry key="xml" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -61,28 +61,28 @@
           <entry key="" value="1" />
           <entry key="APK" value="2" />
           <entry key="Groovy" value="1" />
-          <entry key="IDEA_MODULE" value="1" />
+          <entry key="IDEA_MODULE" value="2" />
           <entry key="Image" value="27" />
-          <entry key="JAVA" value="235" />
+          <entry key="JAVA" value="236" />
           <entry key="JSON" value="14" />
           <entry key="PLAIN_TEXT" value="11" />
           <entry key="ProGuard File" value="1" />
           <entry key="Properties" value="1" />
-          <entry key="XML" value="11" />
+          <entry key="XML" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="cfg" value="52" />
           <entry key="dummy" value="47" />
-          <entry key="java" value="44095" />
+          <entry key="java" value="44147" />
           <entry key="json" value="39" />
           <entry key="xml" value="89" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="44095" />
+          <entry key="JAVA" value="44147" />
           <entry key="JSON" value="39" />
           <entry key="PLAIN_TEXT" value="99" />
           <entry key="XML" value="89" />
@@ -95,11 +95,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/me/wattguy/snake/view/Settings.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="71" column="26" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
+            <state relative-caret-position="333">
+              <caret line="72" column="29" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
               <folding>
                 <element signature="e#2534#2535#0" expanded="true" />
                 <element signature="e#2562#2563#0" expanded="true" />
@@ -139,13 +139,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/me/wattguy/snake/utils/buttons/MButtons.java">
+        <entry file="file://$PROJECT_DIR$/core/src/me/wattguy/snake/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="58" column="8" selection-start-line="58" selection-start-column="8" selection-end-line="59" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="714">
+              <caret line="46" selection-start-line="46" selection-end-line="46" />
             </state>
           </provider>
         </entry>
@@ -162,7 +159,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/me/wattguy/snake/view/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="595">
               <caret line="77" column="35" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
             </state>
           </provider>
@@ -171,35 +168,36 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/me/wattguy/snake/Info.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-17">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="272">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/me/wattguy/snake/utils/RoundedShapeRenderer.java">
+        <entry file="file://$PROJECT_DIR$/android/android.iml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            <state relative-caret-position="442">
+              <caret line="110" column="83" selection-start-line="110" selection-start-column="83" selection-end-line="110" selection-end-column="83" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/me/wattguy/snake/utils/Utils.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="73">
-              <caret line="77" selection-start-line="77" selection-end-line="77" />
+            <state relative-caret-position="170">
+              <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
             </state>
           </provider>
+          <provider editor-type-id="android-manifest" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/me/wattguy/snake/view/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="127" column="28" selection-start-line="127" selection-start-column="28" selection-end-line="127" selection-end-column="28" />
+            <state relative-caret-position="68">
+              <caret line="309" column="26" selection-start-line="309" selection-start-column="26" selection-end-line="309" selection-end-column="26" />
               <folding>
                 <element signature="method#drawBorders#0;class#Game#0" />
                 <element signature="method#resize#0;class#Game#0" />
@@ -3144,7 +3142,6 @@
         <option value="$PROJECT_DIR$/core/src/me/wattguy/worm/utils/ui/MUI.java" />
         <option value="$PROJECT_DIR$/android/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/core/src/me/wattguy/snake/Config.java" />
-        <option value="$PROJECT_DIR$/core/src/me/wattguy/snake/Main.java" />
         <option value="$PROJECT_DIR$/core/src/me/wattguy/snake/objects/Break.java" />
         <option value="$PROJECT_DIR$/core/src/me/wattguy/snake/objects/Brick.java" />
         <option value="$PROJECT_DIR$/core/src/me/wattguy/snake/objects/Snake.java" />
@@ -3154,12 +3151,13 @@
         <option value="$PROJECT_DIR$/core/src/me/wattguy/snake/objects/Dot.java" />
         <option value="$PROJECT_DIR$/core/src/me/wattguy/snake/objects/Apple.java" />
         <option value="$PROJECT_DIR$/core/src/me/wattguy/snake/utils/buttons/MButtons.java" />
-        <option value="$PROJECT_DIR$/core/src/me/wattguy/snake/Info.java" />
         <option value="$PROJECT_DIR$/core/src/me/wattguy/snake/view/Menu.java" />
         <option value="$PROJECT_DIR$/core/src/me/wattguy/snake/utils/buttons/GButtons.java" />
         <option value="$PROJECT_DIR$/core/src/me/wattguy/snake/utils/buttons/SButtons.java" />
-        <option value="$PROJECT_DIR$/core/src/me/wattguy/snake/view/Game.java" />
         <option value="$PROJECT_DIR$/core/src/me/wattguy/snake/view/Settings.java" />
+        <option value="$PROJECT_DIR$/core/src/me/wattguy/snake/view/Game.java" />
+        <option value="$PROJECT_DIR$/core/src/me/wattguy/snake/Main.java" />
+        <option value="$PROJECT_DIR$/core/src/me/wattguy/snake/Info.java" />
       </list>
     </option>
   </component>
@@ -3172,7 +3170,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -3215,25 +3213,6 @@
               <item name="Worm" type="b2602c69:ProjectViewProjectNode" />
               <item name="Worm" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="Worm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Worm" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Worm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Worm" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Worm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Worm" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="android" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="snake" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Worm" type="b2602c69:ProjectViewProjectNode" />
@@ -3562,7 +3541,7 @@
       <window_info id="Designer" order="6" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="UI Designer" order="8" />
-      <window_info active="true" anchor="bottom" id="Run" order="0" sideWeight="0.49840087" visible="true" weight="0.32321042" />
+      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.49840087" weight="0.32321042" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Logcat" order="2" />
       <window_info anchor="bottom" id="TODO" order="3" weight="0.329718" />
@@ -3574,7 +3553,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Build" order="10" weight="0.3286334" />
       <window_info anchor="bottom" id="Find" order="11" weight="0.329718" />
-      <window_info anchor="bottom" id="Android Profiler" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Android Profiler" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.32943678" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -3603,13 +3582,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/android/assets/black.json" />
-    <entry file="file://$PROJECT_DIR$/android/android.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="110" column="83" selection-start-line="110" selection-start-column="83" selection-end-line="110" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/android/src/me/wattguy/snake/AndroidLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -3708,14 +3680,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="76" lean-forward="true" selection-start-line="20" selection-start-column="76" selection-end-line="20" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/android/ic_launcher-web.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -3776,13 +3740,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/me/wattguy/snake/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/me/wattguy/snake/objects/Coin.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1224">
@@ -3831,32 +3788,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/me/wattguy/snake/Info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-17">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/me/wattguy/snake/view/Menu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="77" column="35" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/me/wattguy/snake/view/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="127" column="28" selection-start-line="127" selection-start-column="28" selection-end-line="127" selection-end-column="28" />
-          <folding>
-            <element signature="method#drawBorders#0;class#Game#0" />
-            <element signature="method#resize#0;class#Game#0" />
-            <element signature="method#resume#0;class#Game#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/me/wattguy/snake/utils/buttons/SButtons.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="537">
@@ -3873,8 +3804,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/me/wattguy/snake/view/Settings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="71" column="26" selection-start-line="71" selection-start-column="26" selection-end-line="71" selection-end-column="26" />
+        <state relative-caret-position="333">
+          <caret line="72" column="29" selection-start-line="72" selection-start-column="29" selection-end-line="72" selection-end-column="29" />
           <folding>
             <element signature="e#2534#2535#0" expanded="true" />
             <element signature="e#2562#2563#0" expanded="true" />
@@ -3891,6 +3822,54 @@
             <element signature="e#4232#4233#0" expanded="true" />
             <element signature="e#4260#4261#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/me/wattguy/snake/view/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="309" column="26" selection-start-line="309" selection-start-column="26" selection-end-line="309" selection-end-column="26" />
+          <folding>
+            <element signature="method#drawBorders#0;class#Game#0" />
+            <element signature="method#resize#0;class#Game#0" />
+            <element signature="method#resume#0;class#Game#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/me/wattguy/snake/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/me/wattguy/snake/view/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="77" column="35" selection-start-line="77" selection-start-column="35" selection-end-line="77" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/me/wattguy/snake/Info.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/android.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="110" column="83" selection-start-line="110" selection-start-column="83" selection-end-line="110" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
         </state>
       </provider>
     </entry>
