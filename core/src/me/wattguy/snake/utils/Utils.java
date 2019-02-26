@@ -1,7 +1,9 @@
 package me.wattguy.snake.utils;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -73,6 +75,20 @@ public class Utils {
         return new Color(RED, GREEN, BLUE, 1);
     }
 
+    public static void async(final Runnable r){
+
+        new Thread(new Runnable() {
+
+            @Override
+            public void run() {
+                // post a Runnable to the rendering thread that processes the result
+                Gdx.app.postRunnable(r);
+            }
+
+        }).start();
+
+    }
+
     public static List<Dot> getWithout(){
         List<Dot> dots = new ArrayList<>(Game.dots.values());
 
@@ -95,6 +111,12 @@ public class Utils {
         if (Game.c != null && Game.c.get() != null){
 
             dots.remove(Game.c.get());
+
+        }
+
+        if (Game.b != null && Game.b.get() != null){
+
+            dots.remove(Game.b.get());
 
         }
 

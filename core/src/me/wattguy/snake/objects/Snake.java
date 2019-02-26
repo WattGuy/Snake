@@ -8,7 +8,7 @@ import me.wattguy.snake.Main;
 import me.wattguy.snake.enums.Direction;
 import me.wattguy.snake.enums.Reason;
 import me.wattguy.snake.infos.MoveResponse;
-import me.wattguy.snake.utils.buttons.GButtons;
+import me.wattguy.snake.utils.game.Buttons;
 import me.wattguy.snake.utils.Utils;
 import me.wattguy.snake.view.Game;
 
@@ -20,6 +20,7 @@ public class Snake {
     private Game game = Game.getInstance();
 
     private int rastishka = 0;
+    private int speed = 0;
 
     private float time;
     private float every;
@@ -37,7 +38,7 @@ public class Snake {
 
         System.out.println(dots.size() + " blocks snake");
 
-        GButtons.rectangleUpdate(this);
+        Buttons.rectangleUpdate(this);
 
     }
 
@@ -125,12 +126,14 @@ public class Snake {
         if (!Game.PAUSED && !Game.DIED) {
             time += delta;
 
-            if (time < every) {
+            if ((speed <= 0 && time < every) || (speed > 0 && time < every / 2)) {
                 return new MoveResponse(false, null);
             }
 
             time = 0.0f;
             Dot g = Utils.next(dots.get(0), d);
+
+            speed -= 1;
 
             if (g == null) {
                 return new MoveResponse(false, Reason.DIED);
@@ -142,16 +145,25 @@ public class Snake {
 
             dots.add(0, g);
 
-            GButtons.rectangleUpdate(this);
+            Buttons.rectangleUpdate(this);
 
             Dot c = Game.c.get();
+            Dot b = Game.b.get();
             if (c != null && c.equals(g)){
 
                 Config.setCoins(Config.COINS + 1);
                 Main.actionSound();
                 Game.c.set();
 
-            } else if (Game.a.get().equals(g) || rastishka > 0) {
+            }else if (b != null && b.equals(g)){
+
+                Main.actionSound();
+                Game.b.set();
+                speed = Utils.randInt(5, 10);
+
+            }
+
+            if (Game.a.get().equals(g) || rastishka > 0) {
 
                 if (Game.a.golden) {
 
@@ -165,6 +177,7 @@ public class Snake {
 
                     Main.actionSound();
                     Game.c.check();
+                    Game.b.check();
                     return new MoveResponse(true, Reason.APPLE);
 
                 }else {

@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.math.Vector3;
 
-import me.wattguy.snake.utils.buttons.GButtons;
+import me.wattguy.snake.utils.game.Buttons;
 
 public class TouchHandler extends GestureDetector {
 
@@ -18,9 +18,7 @@ public class TouchHandler extends GestureDetector {
 
         void onSwipeDown();
 
-        void onTouchMenu();
-
-        void onTouchPause();
+        Boolean onTouchButton(float x, float y);
 
         void onTouchLeft();
 
@@ -56,12 +54,8 @@ public class TouchHandler extends GestureDetector {
                 temp.set(x, y, 0);
                 camera.unproject(temp);
 
-                if (GButtons.MENU.getBoundingRectangle().contains(temp.x, temp.y)) {
-                    dListener.onTouchMenu();
-                    return false;
-                } else if (GButtons.PAUSE.getBoundingRectangle().contains(temp.x, temp.y)) {
-                    dListener.onTouchPause();
-                    return false;
+                if (dListener.onTouchButton(temp.x, temp.y)) {
+                    return true;
                 }
 
                 if (dListener.onTouch()) {
@@ -70,9 +64,9 @@ public class TouchHandler extends GestureDetector {
 
                 }
 
-                if (GButtons.LEFT.getBoundingRectangle().contains(temp.x, temp.y)) {
+                if (Buttons.LEFT.getBoundingRectangle().contains(temp.x, temp.y)) {
                     dListener.onTouchLeft();
-                } else if (GButtons.RIGHT.getBoundingRectangle().contains(temp.x, temp.y))
+                } else if (Buttons.RIGHT.getBoundingRectangle().contains(temp.x, temp.y))
                     dListener.onTouchRight();
             }catch(Exception ignored){}
 

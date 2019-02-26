@@ -9,15 +9,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector3;
 
-import me.wattguy.snake.Config;
 import me.wattguy.snake.Info;
-import me.wattguy.snake.Main;
-import me.wattguy.snake.enums.Control;
 import me.wattguy.snake.utils.RoundedShapeRenderer;
-import me.wattguy.snake.utils.settings.Buttons;
-import me.wattguy.snake.utils.settings.UI;
+import me.wattguy.snake.utils.shop.Buttons;
+import me.wattguy.snake.utils.shop.UI;
 
-public class Settings implements Screen, InputProcessor {
+public class Shop implements Screen, InputProcessor {
 
     public Vector3 temp;
     public static OrthographicCamera camera;
@@ -26,7 +23,7 @@ public class Settings implements Screen, InputProcessor {
     public static RoundedShapeRenderer srender;
     public static UI ui;
 
-    private static Settings instance;
+    private static Shop instance;
 
     @Override
     public void show() {
@@ -48,7 +45,7 @@ public class Settings implements Screen, InputProcessor {
 
     }
 
-    public static Settings getInstance(){
+    public static Shop getInstance(){
         return instance;
     }
 
@@ -120,29 +117,6 @@ public class Settings implements Screen, InputProcessor {
         if (Buttons.EXIT.isClicked(temp.x, temp.y)){
 
             return false;
-        }else if (Buttons.CM.getBoundingRectangle().contains(temp.x, temp.y) && Config.CONTROL == Control.RELATIVITY){
-
-            Main.buttonSound();
-
-            Config.setControl(Control.SWIPES);
-
-        }else if (Buttons.CB.getBoundingRectangle().contains(temp.x, temp.y) && Config.CONTROL == Control.SWIPES){
-
-            Main.buttonSound();
-
-            Config.setControl(Control.RELATIVITY);
-
-        }else if (Buttons.SM.getBoundingRectangle().contains(temp.x, temp.y) && !Config.SOUNDS){
-
-            Config.setSounds(true);
-
-            Main.buttonSound();
-
-        }else if (Buttons.SB.getBoundingRectangle().contains(temp.x, temp.y) && Config.SOUNDS){
-
-            Config.setSounds(false);
-
-            Main.buttonSound();
 
         }
 

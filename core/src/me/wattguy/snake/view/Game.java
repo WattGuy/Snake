@@ -20,26 +20,22 @@ import me.wattguy.snake.enums.Direction;
 import me.wattguy.snake.enums.Reason;
 import me.wattguy.snake.infos.MoveResponse;
 import me.wattguy.snake.objects.Apple;
+import me.wattguy.snake.objects.Boost;
 import me.wattguy.snake.objects.Coin;
 import me.wattguy.snake.objects.Dot;
 import me.wattguy.snake.objects.Snake;
 import me.wattguy.snake.utils.TouchHandler;
-import me.wattguy.snake.utils.buttons.GButtons;
+import me.wattguy.snake.utils.game.Buttons;
 import me.wattguy.snake.utils.RoundedShapeRenderer;
 import me.wattguy.snake.utils.Pair;
-import me.wattguy.snake.utils.ui.GUI;
+import me.wattguy.snake.utils.game.UI;
 import me.wattguy.snake.utils.Utils;
 
 public class Game implements Screen {
 
     public RoundedShapeRenderer srender;
     public SpriteBatch batch;
-    public GUI GUI;
-
-    public static Texture coin;
-
-    //public static Color LIGHT_GREEN = Color.BLACK;
-   // public static Color GREEN = Utils.toRGB(15, 15, 15)/*Utils.toRGB(162, 209, 73)*/;
+    public UI GUI;
 
     public static Boolean DIED = false;
     public static Boolean WON = false;
@@ -49,32 +45,25 @@ public class Game implements Screen {
     public static Snake s;
     public static Apple a;
     public static Coin c;
+    public static Boost b;
 
     public static HashMap<String, Dot> dots = new HashMap<>();
 
     private static Game instance;
 
-    public static Boolean MENU;
-    public static Boolean PAUSE;
-    private float time = 0f;
-
     @Override
     public void show() {
         instance = this;
 
-        MENU = false;
-        PAUSE = false;
-        time = 0f;
+        Buttons.initialize();
 
-        GButtons.initialize();
-
+        b = null;
         c = null;
         bricks.clear();
 
         srender = new RoundedShapeRenderer();
-        coin = new Texture(Gdx.files.internal("sprites/coin.png"));
         batch = new SpriteBatch();
-        GUI = new GUI();
+        GUI = new UI();
 
         if (dots.size() == 0){
             long time = System.currentTimeMillis();
@@ -123,15 +112,20 @@ public class Game implements Screen {
                     }
 
                     @Override
-                    public void onTouchMenu() {
-                        time = 0f;
-                        MENU = true;
-                    }
+                    public Boolean onTouchButton(float x, float y) {
 
-                    @Override
-                    public void onTouchPause() {
-                        time = 0f;
-                        PAUSE = true;
+                        if (Buttons.MENU.isClicked(x, y)){
+
+                            return true;
+
+                        }else if (Buttons.PAUSE.isClicked(x, y)){
+
+                            return true;
+
+                        }
+
+
+                        return false;
                     }
 
                     @Override
@@ -189,48 +183,11 @@ public class Game implements Screen {
 
         Game.s = new Snake(4, 13);
         spawnBricks();
+        Game.b = new Boost();
         Game.c = new Coin();
         Game.a = new Apple();
 
     }
-
-    /*private void drawBackground(){
-
-        for(int x = 1; x <= Info.WIDTH_SIZE; x++){
-            boolean evenx = (x % 2 == 0);
-
-            for(int y = 1; y <= Info.HEIGHT_SIZE; y++){
-                System.out.println((x - 1) + ":" + (y - 1));
-                Pair p = Utils.crdsToReal(x - 1, y - 1);
-                boolean eveny = (y % 2 == 0);
-
-                Color c = GREEN;
-                if (evenx && eveny){
-
-                    c = LIGHT_GREEN;
-
-                }else if (evenx && !eveny){
-
-                    c = GREEN;
-
-                }else if (!evenx && eveny){
-
-                    c = GREEN;
-
-                }else if (!evenx && !eveny){
-
-                    c = LIGHT_GREEN;
-
-                }
-
-                srender.setColor(c);
-                srender.rect((Float) p.first(), (Float) p.second(), Info.BLOCK_WIDTH, Info.BLOCK_HEIGHT);
-
-            }
-
-        }
-
-    }*/
 
     private void spawnBricks(){
         bricks.clear();
@@ -259,11 +216,18 @@ public class Game implements Screen {
 
         if (r.isMoved() && r.getReason() == Reason.APPLE){
 
-            if (!a.random()){
+            Utils.async(new Runnable() {
 
-                WON = true;
+                @Override
+                public void run() {
+                    if (!a.random()){
 
-            }
+                        WON = true;
+
+                    }
+                }
+
+            });
 
         }else if (!r.isMoved()){
 
@@ -306,49 +270,16 @@ public class Game implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
-        if (MENU || PAUSE){
-            time += delta;
-
-            if (time >= Info.NEED && MENU){
-
-                time = 0f;
-                MENU = false;
-
-                Main.buttonSound();
-                Main.getInstance().setScreen(Main.menu);
-
-                return;
-
-            }else if (time >= Info.NEED && PAUSE){
-
-                time = 0f;
-                PAUSE = false;
-
-                Main.buttonSound();
-                Game.PAUSED = true;
-
-            }
-
-        }
-
         if (!GUI.COUNTING && !WON){
 
             update(delta);
 
         }
 
-        batch.begin();
-        try {
-            Game.c.draw(delta);
-        }catch(Exception ignored){}
-        batch.end();
-
         srender.begin(ShapeRenderer.ShapeType.Filled);
-        //drawBackground();
         drawBorders();
 
         if (!GUI.COUNTING){
-
 
             Game.a.draw(delta);
 
@@ -362,7 +293,14 @@ public class Game implements Screen {
 
         }
 
-        GButtons.draw();
+        batch.begin();
+        try {
+            Game.c.draw(delta);
+            Game.b.draw(delta);
+        }catch(Exception ignored){}
+        batch.end();
+
+        Buttons.draw(delta);
         srender.end();
 
         GUI.draw(delta);
@@ -394,10 +332,9 @@ public class Game implements Screen {
 
     @Override
     public void dispose() {
-        coin.dispose();
         srender.dispose();
         batch.dispose();
-        GButtons.dispose();
+        Buttons.dispose();
         GUI.dispose();
     }
 

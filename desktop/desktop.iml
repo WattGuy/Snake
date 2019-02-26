@@ -98,5 +98,6 @@
     <orderEntry type="library" exported="" name="Gradle: runtime-1.0.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: common-1.0.0" level="project" />
     <orderEntry type="module" module-name="core" exported="" />
+    <orderEntry type="module" module-name="core" exported="" />
   </component>
 </module>
