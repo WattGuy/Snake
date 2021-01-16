@@ -10,9 +10,9 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector3;
 
 import me.wattguy.snake.Info;
-import me.wattguy.snake.utils.menu.Buttons;
+import me.wattguy.snake.menus.main.Buttons;
 import me.wattguy.snake.utils.RoundedShapeRenderer;
-import me.wattguy.snake.utils.menu.UI;
+import me.wattguy.snake.menus.main.UI;
 
 public class Menu implements Screen, InputProcessor {
 
@@ -143,7 +143,8 @@ public class Menu implements Screen, InputProcessor {
     }
 
     @Override
-    public boolean scrolled(int amount) {
+    public boolean scrolled(float amountX, float amountY) {
         return false;
     }
+
 }

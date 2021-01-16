@@ -8,7 +8,7 @@ import me.wattguy.snake.Main;
 import me.wattguy.snake.enums.Direction;
 import me.wattguy.snake.enums.Reason;
 import me.wattguy.snake.infos.MoveResponse;
-import me.wattguy.snake.utils.game.Buttons;
+import me.wattguy.snake.menus.game.Buttons;
 import me.wattguy.snake.utils.Utils;
 import me.wattguy.snake.view.Game;
 
@@ -19,7 +19,7 @@ public class Snake {
     public Direction d = Direction.RIGHT;
     private Game game = Game.getInstance();
 
-    private int rastishka = 0;
+    private int stretch = 0;
     private int speed = 0;
 
     private float time;
@@ -44,45 +44,27 @@ public class Snake {
 
     public void leftTurn(){
 
-        if (d == Direction.UP){
-
+        if (d == Direction.UP)
             d = Direction.LEFT;
-
-        }else if (d == Direction.DOWN){
-
+        else if (d == Direction.DOWN)
             d = Direction.RIGHT;
-
-        }else if (d == Direction.LEFT){
-
+        else if (d == Direction.LEFT)
             d = Direction.DOWN;
-
-        }else {
-
+        else
             d = Direction.UP;
-
-        }
 
     }
 
     public void rightTurn(){
 
-        if (d == Direction.UP){
-
+        if (d == Direction.UP)
             d = Direction.RIGHT;
-
-        }else if (d == Direction.DOWN){
-
+        else if (d == Direction.DOWN)
             d = Direction.LEFT;
-
-        }else if (d == Direction.LEFT){
-
+        else if (d == Direction.LEFT)
             d = Direction.UP;
-
-        }else /*right*/{
-
+        else
             d = Direction.DOWN;
-
-        }
 
     }
 
@@ -107,18 +89,20 @@ public class Snake {
     }
 
     public void draw() {
+
         for (int i = 0; i <= this.dots.size() - 1; i++) {
-            Dot d = (Dot) this.dots.get(i);
-            if (d != null) {
-                if (i == 0) {
-                    d.drawHead();
-                } else if (i != this.dots.size() - 1) {
-                    d.drawBody(i);
-                } else {
-                    d.drawTail();
-                }
-            }
+            Dot d = this.dots.get(i);
+
+            if (d == null)  continue;
+
+            if (i == 0)
+                d.drawHead();
+            else if (i != this.dots.size() - 1)
+                d.drawBody(i);
+            else
+                d.drawTail();
         }
+
     }
 
     public MoveResponse move(float delta) {
@@ -163,11 +147,11 @@ public class Snake {
 
             }
 
-            if (Game.a.get().equals(g) || rastishka > 0) {
+            if (Game.a.get().equals(g) || stretch > 0) {
 
                 if (Game.a.golden) {
 
-                    rastishka += 2;
+                    stretch += 2;
 
                 }
 
@@ -182,7 +166,7 @@ public class Snake {
 
                 }else {
 
-                    rastishka -= 1;
+                    stretch -= 1;
                     return new MoveResponse(true, null);
 
                 }
@@ -201,6 +185,7 @@ public class Snake {
             return new MoveResponse(false, Reason.PAUSED);
 
         }
+
     }
 
 }

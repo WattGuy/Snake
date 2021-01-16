@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
@@ -14,7 +13,6 @@ import java.util.List;
 
 import me.wattguy.snake.Config;
 import me.wattguy.snake.Info;
-import me.wattguy.snake.Main;
 import me.wattguy.snake.enums.Control;
 import me.wattguy.snake.enums.Direction;
 import me.wattguy.snake.enums.Reason;
@@ -25,10 +23,10 @@ import me.wattguy.snake.objects.Coin;
 import me.wattguy.snake.objects.Dot;
 import me.wattguy.snake.objects.Snake;
 import me.wattguy.snake.utils.TouchHandler;
-import me.wattguy.snake.utils.game.Buttons;
+import me.wattguy.snake.menus.game.Buttons;
 import me.wattguy.snake.utils.RoundedShapeRenderer;
 import me.wattguy.snake.utils.Pair;
-import me.wattguy.snake.utils.game.UI;
+import me.wattguy.snake.menus.game.UI;
 import me.wattguy.snake.utils.Utils;
 
 public class Game implements Screen {

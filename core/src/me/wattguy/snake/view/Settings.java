@@ -14,8 +14,8 @@ import me.wattguy.snake.Info;
 import me.wattguy.snake.Main;
 import me.wattguy.snake.enums.Control;
 import me.wattguy.snake.utils.RoundedShapeRenderer;
-import me.wattguy.snake.utils.settings.Buttons;
-import me.wattguy.snake.utils.settings.UI;
+import me.wattguy.snake.menus.settings.Buttons;
+import me.wattguy.snake.menus.settings.UI;
 
 public class Settings implements Screen, InputProcessor {
 
@@ -165,7 +165,8 @@ public class Settings implements Screen, InputProcessor {
     }
 
     @Override
-    public boolean scrolled(int amount) {
+    public boolean scrolled(float amountX, float amountY) {
         return false;
     }
+
 }

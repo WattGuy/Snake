@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.math.Vector3;
 
-import me.wattguy.snake.utils.game.Buttons;
+import me.wattguy.snake.menus.game.Buttons;
 
 public class TouchHandler extends GestureDetector {
 

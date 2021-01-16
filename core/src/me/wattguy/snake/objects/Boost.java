@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import java.util.List;
 
 import me.wattguy.snake.Info;
-import me.wattguy.snake.Main;
 import me.wattguy.snake.enums.BoostType;
 import me.wattguy.snake.utils.Pair;
 import me.wattguy.snake.utils.Utils;
@@ -18,7 +17,7 @@ public class Boost {
     private Dot d;
     private Integer score;
     private Integer dscore = null;
-    private float mnoz = 0f;
+    private float multiplier = 0f;
     private float time = 1f;
     public BoostType type;
     private Texture texture;
@@ -73,7 +72,7 @@ public class Boost {
 
             creating = true;
             dscore = Game.s.dots.size() + Utils.randInt(1, 3);
-            mnoz = 0f;
+            multiplier = 0f;
             d = dots.get(Utils.randInt(0, dots.size() - 1));
 
         }
@@ -88,7 +87,7 @@ public class Boost {
             SpriteBatch batch = Game.getInstance().batch;
 
             Sprite s = new Sprite(texture);
-            s.setSize(Info.BLOCK_WIDTH * mnoz,  Info.BLOCK_HEIGHT * mnoz);
+            s.setSize(Info.BLOCK_WIDTH * multiplier,  Info.BLOCK_HEIGHT * multiplier);
             Pair p = Utils.getPositionFromCenter(d.getRealX() + (Info.BLOCK_WIDTH / 2), d.getRealY() + (Info.BLOCK_HEIGHT / 2), s.getWidth(), s.getHeight());
             s.setPosition((Float) p.first(), (Float) p.second());
 
@@ -96,11 +95,11 @@ public class Boost {
 
                 if (time >= 0.001f){
 
-                    mnoz += 0.0225f;
+                    multiplier += 0.0225f;
 
                 }
 
-                if (mnoz >= 0.9f){
+                if (multiplier >= 0.9f){
 
                     creating = false;
 
@@ -113,11 +112,11 @@ public class Boost {
 
                 if (time >= 0.001f){
 
-                    mnoz -= 0.0225f;
+                    multiplier -= 0.0225f;
 
                 }
 
-                if (mnoz <= 0f){
+                if (multiplier <= 0f){
 
                     destroying = false;
                     d = null;
@@ -135,21 +134,21 @@ public class Boost {
 
             if (time < 0.05f) return;
             time = 0f;
-            if (!was) mnoz += 0.01f;
-            else mnoz -= 0.01f;
+            if (!was) multiplier += 0.01f;
+            else multiplier -= 0.01f;
 
-            if (mnoz >= 1.0f){
+            if (multiplier >= 1.0f){
 
                 was = true;
 
-            }else if (mnoz <= 0.9f && was){
+            }else if (multiplier <= 0.9f && was){
 
                 was = false;
 
             }
 
         }else{
-            mnoz = 1f;
+            multiplier = 1f;
             time = 0f;
         }
 
