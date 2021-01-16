@@ -167,7 +167,7 @@ public class Buttons {
     }
 
     public static void draw(float delta){
-        RoundedShapeRenderer srender = Game.getInstance().srender;
+        RoundedShapeRenderer srender = Game.getInstance().shapeRenderer;
 
         keys();
 

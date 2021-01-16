@@ -121,7 +121,7 @@ public class Buttons {
     }
 
     public static void draw(float delta){
-        RoundedShapeRenderer srender = Settings.srender;
+        RoundedShapeRenderer srender = Settings.shareRenderer;
 
         EXIT.draw(delta, srender);
 

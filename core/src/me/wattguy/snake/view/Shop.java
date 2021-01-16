@@ -11,8 +11,8 @@ import com.badlogic.gdx.math.Vector3;
 
 import me.wattguy.snake.Info;
 import me.wattguy.snake.utils.RoundedShapeRenderer;
-import me.wattguy.snake.utils.shop.Buttons;
-import me.wattguy.snake.utils.shop.UI;
+import me.wattguy.snake.menus.shop.Buttons;
+import me.wattguy.snake.menus.shop.UI;
 
 public class Shop implements Screen, InputProcessor {
 
@@ -20,7 +20,7 @@ public class Shop implements Screen, InputProcessor {
     public static OrthographicCamera camera;
 
     public static SpriteBatch batch;
-    public static RoundedShapeRenderer srender;
+    public static RoundedShapeRenderer shapeRenderer;
     public static UI ui;
 
     private static Shop instance;
@@ -31,7 +31,7 @@ public class Shop implements Screen, InputProcessor {
 
         Info.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         batch = new SpriteBatch();
-        srender = new RoundedShapeRenderer();
+        shapeRenderer = new RoundedShapeRenderer();
 
         Buttons.initialize();
         ui = new UI();
@@ -59,9 +59,9 @@ public class Shop implements Screen, InputProcessor {
         Buttons.batchdraw();
         batch.end();
 
-        srender.begin(ShapeRenderer.ShapeType.Filled);
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         Buttons.draw(delta);
-        srender.end();
+        shapeRenderer.end();
 
         ui.draw();
     }
@@ -89,7 +89,7 @@ public class Shop implements Screen, InputProcessor {
     @Override
     public void dispose() {
         batch.dispose();
-        srender.dispose();
+        shapeRenderer.dispose();
         ui.dispose();
     }
 

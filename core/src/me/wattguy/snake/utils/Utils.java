@@ -3,7 +3,6 @@ package me.wattguy.snake.utils;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -31,7 +30,7 @@ public class Utils {
     public static void border(Pair p1, Pair p2, float width, Direction d){
         float wm = width - 1;
 
-        Game.getInstance().srender.rectLine((Float) p1.first() + wm, (Float) p1.second() + wm, (Float) p2.first() + wm, (Float) p2.second() + wm, width);
+        Game.getInstance().shapeRenderer.rectLine((Float) p1.first() + wm, (Float) p1.second() + wm, (Float) p2.first() + wm, (Float) p2.second() + wm, width);
 
     }
 
@@ -81,7 +80,6 @@ public class Utils {
 
             @Override
             public void run() {
-                // post a Runnable to the rendering thread that processes the result
                 Gdx.app.postRunnable(r);
             }
 
@@ -158,13 +156,7 @@ public class Utils {
 
             }
 
-            Dot g = Game.dots.get(Game.get(d.getXCoordinate() + x, d.getYCoordinate() + y));
-
-            if (g != null) {
-
-                return g;
-
-            } else return null;
+            return Game.dots.get(Game.get(d.getXCoordinate() + x, d.getYCoordinate() + y));
         }catch(Exception ignored){}
 
         return null;

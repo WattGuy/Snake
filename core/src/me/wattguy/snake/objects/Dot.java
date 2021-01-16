@@ -48,8 +48,8 @@ public class Dot {
 
     private void draw(Color c){
 
-        game.srender.setColor(c);
-        game.srender.roundedRect(x, y, Info.BLOCK_WIDTH, Info.BLOCK_HEIGHT, Info.BLOCK_WIDTH - 3);
+        game.shapeRenderer.setColor(c);
+        game.shapeRenderer.roundedRect(x, y, Info.BLOCK_WIDTH, Info.BLOCK_HEIGHT, Info.BLOCK_WIDTH - 3);
 
     }
 
@@ -57,7 +57,7 @@ public class Dot {
         Dot g = Game.s.dots.get(Game.s.dots.size() - 2);
         Direction r = Utils.relativity(this, g);
 
-        game.srender.setColor(Color.WHITE);
+        game.shapeRenderer.setColor(Color.WHITE);
 
         float ph = Info.BLOCK_HEIGHT / 100;
         float pw = Info.BLOCK_WIDTH / 100;
@@ -70,23 +70,23 @@ public class Dot {
 
         if (r == Direction.RIGHT){
 
-            game.srender.rect(x + (pw * 50), y + (ph * 25), width1, height1);
-            game.srender.rect(x + (pw * 20), y + (ph * 35), width2, height2);
+            game.shapeRenderer.rect(x + (pw * 50), y + (ph * 25), width1, height1);
+            game.shapeRenderer.rect(x + (pw * 20), y + (ph * 35), width2, height2);
 
         }else if (r == Direction.LEFT){
 
-            game.srender.rect(x, y + (ph * 25), width1, height1);
-            game.srender.rect(x + (pw * 50), y + (ph * 35), width2, height2);
+            game.shapeRenderer.rect(x, y + (ph * 25), width1, height1);
+            game.shapeRenderer.rect(x + (pw * 50), y + (ph * 35), width2, height2);
 
         }else if (r == Direction.UP){
 
-            game.srender.rect(x + (pw * 25), y + (ph * 50), width1, height1);
-            game.srender.rect(x + (pw * 35), y + (ph * 20), width2, height2);
+            game.shapeRenderer.rect(x + (pw * 25), y + (ph * 50), width1, height1);
+            game.shapeRenderer.rect(x + (pw * 35), y + (ph * 20), width2, height2);
 
         }else if (r == Direction.DOWN){
 
-            game.srender.rect(x + (pw * 25), y, width1, height1);
-            game.srender.rect(x + (pw * 35), y + (ph * 50), width2, height2);
+            game.shapeRenderer.rect(x + (pw * 25), y, width1, height1);
+            game.shapeRenderer.rect(x + (pw * 35), y + (ph * 50), width2, height2);
 
         }
 
@@ -100,7 +100,7 @@ public class Dot {
         Direction r1 = Utils.relativity(this, Game.s.dots.get(i - 1));
         Direction r2 = Utils.relativity(this, Game.s.dots.get(i + 1));
 
-        game.srender.setColor(Color.WHITE);
+        game.shapeRenderer.setColor(Color.WHITE);
 
         float percent = Info.BLOCK_HEIGHT / 100;
 
@@ -108,7 +108,7 @@ public class Dot {
         if (r1 == Direction.LEFT && r2 == Direction.RIGHT || r1 == Direction.RIGHT && r2 == Direction.LEFT){
             float height = percent * 80;
 
-            game.srender.rect(x, y + (percent * 10), Info.BLOCK_WIDTH, height);
+            game.shapeRenderer.rect(x, y + (percent * 10), Info.BLOCK_WIDTH, height);
 
         }
         // |
@@ -118,35 +118,35 @@ public class Dot {
 
             float width = percent * 80;
 
-            game.srender.rect(x + (percent * 10), y, width, Info.BLOCK_HEIGHT);
+            game.shapeRenderer.rect(x + (percent * 10), y, width, Info.BLOCK_HEIGHT);
 
         }
         // -x
         //  |
         else if (r1 == Direction.LEFT && r2 == Direction.DOWN || r1 == Direction.DOWN && r2 == Direction.LEFT){
 
-            game.srender.arc(x, y, (Info.BLOCK_WIDTH / 100) * 90, 0, 90);
+            game.shapeRenderer.arc(x, y, (Info.BLOCK_WIDTH / 100) * 90, 0, 90);
 
         }
         //  |
         // -x
         else if (r1 == Direction.UP && r2 == Direction.LEFT || r1 == Direction.LEFT && r2 == Direction.UP){
 
-            game.srender.arc(x, y + Info.BLOCK_HEIGHT, (Info.BLOCK_WIDTH / 100) * 90, 270, 90);
+            game.shapeRenderer.arc(x, y + Info.BLOCK_HEIGHT, (Info.BLOCK_WIDTH / 100) * 90, 270, 90);
 
         }
         // x-
         // |
         else if (r1 == Direction.RIGHT && r2 == Direction.DOWN || r1 == Direction.DOWN && r2 == Direction.RIGHT){
 
-            game.srender.arc(x + Info.BLOCK_WIDTH, y, (Info.BLOCK_WIDTH / 100) * 90, 90, 90);
+            game.shapeRenderer.arc(x + Info.BLOCK_WIDTH, y, (Info.BLOCK_WIDTH / 100) * 90, 90, 90);
 
         }
         // |
         // x-
         else if (r1 == Direction.RIGHT && r2 == Direction.UP || r1 == Direction.UP && r2 == Direction.RIGHT){
 
-            game.srender.arc(x + Info.BLOCK_WIDTH, y + Info.BLOCK_HEIGHT, (Info.BLOCK_WIDTH / 100) * 90, 180, 90);
+            game.shapeRenderer.arc(x + Info.BLOCK_WIDTH, y + Info.BLOCK_HEIGHT, (Info.BLOCK_WIDTH / 100) * 90, 180, 90);
 
         }
 

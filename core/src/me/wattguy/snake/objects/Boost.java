@@ -15,10 +15,13 @@ import me.wattguy.snake.view.Game;
 public class Boost {
 
     private Dot d;
+
     private Integer score;
-    private Integer dscore = null;
+    private Integer score_trigger = null;
+
     private float multiplier = 0f;
     private float time = 1f;
+
     public BoostType type;
     private Texture texture;
     private Boolean creating = true;
@@ -57,7 +60,7 @@ public class Boost {
 
             });
 
-        }else if (d != null && dscore != null && Game.s.dots.size() == dscore){
+        }else if (d != null && score_trigger != null && Game.s.dots.size() == score_trigger){
 
             destroying = true;
 
@@ -71,7 +74,7 @@ public class Boost {
         if (dots.size() != 0){
 
             creating = true;
-            dscore = Game.s.dots.size() + Utils.randInt(1, 3);
+            score_trigger = Game.s.dots.size() + Utils.randInt(1, 3);
             multiplier = 0f;
             d = dots.get(Utils.randInt(0, dots.size() - 1));
 

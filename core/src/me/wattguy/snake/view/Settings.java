@@ -23,7 +23,7 @@ public class Settings implements Screen, InputProcessor {
     public static OrthographicCamera camera;
 
     public static SpriteBatch batch;
-    public static RoundedShapeRenderer srender;
+    public static RoundedShapeRenderer shareRenderer;
     public static UI ui;
 
     private static Settings instance;
@@ -34,7 +34,7 @@ public class Settings implements Screen, InputProcessor {
 
         Info.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         batch = new SpriteBatch();
-        srender = new RoundedShapeRenderer();
+        shareRenderer = new RoundedShapeRenderer();
 
         Buttons.initialize();
         ui = new UI();
@@ -62,9 +62,9 @@ public class Settings implements Screen, InputProcessor {
         Buttons.batchdraw();
         batch.end();
 
-        srender.begin(ShapeRenderer.ShapeType.Filled);
+        shareRenderer.begin(ShapeRenderer.ShapeType.Filled);
         Buttons.draw(delta);
-        srender.end();
+        shareRenderer.end();
 
         ui.draw();
     }
@@ -92,7 +92,7 @@ public class Settings implements Screen, InputProcessor {
     @Override
     public void dispose() {
         batch.dispose();
-        srender.dispose();
+        shareRenderer.dispose();
         ui.dispose();
     }
 

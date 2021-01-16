@@ -17,7 +17,6 @@ public class Snake {
     public List<Dot> dots = new ArrayList<>();
 
     public Direction d = Direction.RIGHT;
-    private Game game = Game.getInstance();
 
     private int stretch = 0;
     private int speed = 0;

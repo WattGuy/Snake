@@ -20,7 +20,7 @@ public class Menu implements Screen, InputProcessor {
     public static OrthographicCamera camera;
 
     public static SpriteBatch batch;
-    public static RoundedShapeRenderer srender;
+    public static RoundedShapeRenderer shapeRenderer;
     public static UI ui;
 
     private static Menu instance;
@@ -31,7 +31,7 @@ public class Menu implements Screen, InputProcessor {
 
         Info.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         batch = new SpriteBatch();
-        srender = new RoundedShapeRenderer();
+        shapeRenderer = new RoundedShapeRenderer();
 
         Buttons.initialize();
         ui = new UI();
@@ -55,9 +55,9 @@ public class Menu implements Screen, InputProcessor {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         Gdx.gl.glViewport(0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
-        srender.begin(ShapeRenderer.ShapeType.Filled);
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         Buttons.draw(delta);
-        srender.end();
+        shapeRenderer.end();
 
         ui.draw();
     }
@@ -84,7 +84,7 @@ public class Menu implements Screen, InputProcessor {
 
     @Override
     public void dispose() {
-        srender.dispose();
+        shapeRenderer.dispose();
         batch.dispose();
         ui.dispose();
     }

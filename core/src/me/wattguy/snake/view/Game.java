@@ -31,7 +31,7 @@ import me.wattguy.snake.utils.Utils;
 
 public class Game implements Screen {
 
-    public RoundedShapeRenderer srender;
+    public RoundedShapeRenderer shapeRenderer;
     public SpriteBatch batch;
     public UI GUI;
 
@@ -59,7 +59,7 @@ public class Game implements Screen {
         c = null;
         bricks.clear();
 
-        srender = new RoundedShapeRenderer();
+        shapeRenderer = new RoundedShapeRenderer();
         batch = new SpriteBatch();
         GUI = new UI();
 
@@ -79,7 +79,7 @@ public class Game implements Screen {
             System.out.println(dots.size() + " blocks made by " + (System.currentTimeMillis() - time) + "ms");
         }
 
-        Gdx.input.setInputProcessor(new TouchHandler(new TouchHandler.DListener() {
+        Gdx.input.setInputProcessor(new TouchHandler(new TouchHandler.DirectionListener() {
 
                     @Override
                     public void onSwipeLeft() {
@@ -254,7 +254,7 @@ public class Game implements Screen {
         Pair left_top = Utils.modify(Utils.crdsToReal(0, Info.HEIGHT_SIZE), -3, 0);
 
 
-        srender.setColor(Color.RED);
+        shapeRenderer.setColor(Color.RED);
         Utils.border(left_top, right_top, 3, Direction.UP);
         Utils.border(right_top, right_bottom, 3, Direction.RIGHT);
         Utils.border(right_bottom, left_bottom, 3, Direction.DOWN);
@@ -274,7 +274,7 @@ public class Game implements Screen {
 
         }
 
-        srender.begin(ShapeRenderer.ShapeType.Filled);
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
         drawBorders();
 
         if (!GUI.COUNTING){
@@ -299,7 +299,7 @@ public class Game implements Screen {
         batch.end();
 
         Buttons.draw(delta);
-        srender.end();
+        shapeRenderer.end();
 
         GUI.draw(delta);
     }
@@ -330,7 +330,7 @@ public class Game implements Screen {
 
     @Override
     public void dispose() {
-        srender.dispose();
+        shapeRenderer.dispose();
         batch.dispose();
         Buttons.dispose();
         GUI.dispose();

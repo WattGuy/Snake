@@ -74,7 +74,7 @@ public class Buttons {
     }
 
     public static void draw(float delta){
-        RoundedShapeRenderer srender = Menu.srender;
+        RoundedShapeRenderer srender = Menu.shapeRenderer;
 
         START.draw(delta, srender);
         SETTINGS.draw(delta, srender);

@@ -9,7 +9,7 @@ import me.wattguy.snake.menus.game.Buttons;
 
 public class TouchHandler extends GestureDetector {
 
-    public interface DListener {
+    public interface DirectionListener {
         void onSwipeLeft();
 
         void onSwipeRight();
@@ -27,23 +27,23 @@ public class TouchHandler extends GestureDetector {
         Boolean onTouch();
     }
 
-    public TouchHandler(DListener directionListener) {
-        super(new DGListener(directionListener));
+    public TouchHandler(DirectionListener directionListener) {
+        super(new DirectionGestureListener(directionListener));
     }
 
-    private static class DGListener extends GestureAdapter {
+    private static class DirectionGestureListener extends GestureAdapter {
 
         private OrthographicCamera camera;
         private Vector3 temp;
-        private DListener dListener;
+        private DirectionListener directionListener;
 
-        public DGListener(DListener directionListener){
+        public DirectionGestureListener(DirectionListener directionListener){
             this.temp = new Vector3();
 
             this.camera = new OrthographicCamera();
             camera.position.set(camera.viewportWidth / 2, camera.viewportHeight / 2, 0);
             camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-            this.dListener = directionListener;
+            this.directionListener = directionListener;
         }
 
         @Override
@@ -54,20 +54,20 @@ public class TouchHandler extends GestureDetector {
                 temp.set(x, y, 0);
                 camera.unproject(temp);
 
-                if (dListener.onTouchButton(temp.x, temp.y)) {
+                if (directionListener.onTouchButton(temp.x, temp.y)) {
                     return true;
                 }
 
-                if (dListener.onTouch()) {
+                if (directionListener.onTouch()) {
 
                     return true;
 
                 }
 
                 if (Buttons.LEFT.getBoundingRectangle().contains(temp.x, temp.y)) {
-                    dListener.onTouchLeft();
+                    directionListener.onTouchLeft();
                 } else if (Buttons.RIGHT.getBoundingRectangle().contains(temp.x, temp.y))
-                    dListener.onTouchRight();
+                    directionListener.onTouchRight();
             }catch(Exception ignored){}
 
             return true;
@@ -80,15 +80,15 @@ public class TouchHandler extends GestureDetector {
 
                 if (Math.abs(velocityX) > Math.abs(velocityY)) {
                     if (velocityX > 0) {
-                        dListener.onSwipeRight();
+                        directionListener.onSwipeRight();
                     } else {
-                        dListener.onSwipeLeft();
+                        directionListener.onSwipeLeft();
                     }
                 } else {
                     if (velocityY > 0) {
-                        dListener.onSwipeDown();
+                        directionListener.onSwipeDown();
                     } else {
-                        dListener.onSwipeUp();
+                        directionListener.onSwipeUp();
                     }
                 }
             }catch(Exception ignored){}
